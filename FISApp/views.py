@@ -8,6 +8,7 @@ from django.contrib.auth import authenticate, login, logout
 # Create your views here.
 
 def home(request):
+    #context = {'first_name' : first_name[0]}
     return render(request, 'home.html')
 
 def registerPage(request):
@@ -30,5 +31,11 @@ def loginPage(request):
         if user is not None:
             login(request, user)
             return redirect('home')
+        else:
+            messages.info(request, "Username or Password is incorrect.")
     context = {}
     return render(request, 'login.html', context)
+
+def logoutUser(request):
+    logout(request)
+    return redirect('login')

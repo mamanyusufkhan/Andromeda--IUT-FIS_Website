@@ -8,6 +8,8 @@
     {% for message in messages %}
         <p id="messages"> {{message}}</p>
     {% endfor %}
+    <button type="submit"> <a href="/">Home</a></button>
+    <button type="submit"> <a href="/register">SignUp</a></button>
      <h3>Sign In</h3>
     <form action="/login/" method="POST">
         {% csrf_token %}
